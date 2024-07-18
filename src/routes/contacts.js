@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import express from 'express';
 import {
   createContactController,
   deleteContactController,
@@ -14,7 +14,11 @@ import {
 import { validateBody } from '../middlewares/validateBody.js';
 import { isValidId } from '../middlewares/isValidId.js';
 
-const router = Router();
+const router = express.Router();
+const parseJSON = express.json({
+  type: ['application/json', 'application/vnd.api+json'],
+  limit: '100kb',
+});
 
 router.get('/contacts', ctrlWrapper(getContactsController));
 
@@ -26,6 +30,7 @@ router.get(
 
 router.post(
   '/contacts',
+  parseJSON,
   validateBody(createContactSchema),
   ctrlWrapper(createContactController),
 );
@@ -38,6 +43,7 @@ router.delete(
 
 router.patch(
   '/contacts/:contactId',
+  parseJSON,
   isValidId,
   validateBody(updateContactSchema),
   ctrlWrapper(patchContactController),
