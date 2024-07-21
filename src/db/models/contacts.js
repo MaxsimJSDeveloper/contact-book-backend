@@ -1,3 +1,5 @@
+// src/db/models/contacts.js
+
 import { model, Schema } from 'mongoose';
 
 const contactsSchema = new Schema(
@@ -24,6 +26,7 @@ const contactsSchema = new Schema(
       required: true,
       default: 'home',
     },
+    userId: { type: Schema.Types.ObjectId, ref: 'users', required: true }, // нове поле
   },
   {
     timestamps: true,
