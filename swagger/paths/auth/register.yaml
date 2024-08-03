@@ -11,7 +11,22 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: '../../components/schemas/user.yaml'
+        type: object
+        properties:
+          name:
+            type: string
+            description: "User's name"
+            example: 'John Doe'
+          email:
+            type: string
+            description: "User's email address"
+            format: email
+            uniqueItems: true
+            example: 'john.doe@example.com'
+          password:
+            type: string
+            description: "User's password"
+            example: 'password123'
 responses:
   '201':
     description: Successfully registered a user
