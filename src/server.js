@@ -12,15 +12,20 @@ import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
 const PORT = Number(env('PORT', '3000'));
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  // 'https://example.com',
+];
+
+const corsOptions = {
+  origin: allowedOrigins,
+  credentials: true,
+};
+
 export const startServer = () => {
   const app = express();
 
-  app.use(
-    cors({
-      origin: '*',
-      credentials: true,
-    }),
-  );
+  app.use(cors(corsOptions));
 
   app.use(cookieParser());
 
