@@ -76,9 +76,12 @@ const createSession = () => {
 };
 
 export const refreshUsersSession = async ({ sessionId, refreshToken }) => {
+  const sessionIdDec = decodeURIComponent(sessionId); // Декодируем sessionId
+  const refreshTokenDec = decodeURIComponent(refreshToken); // Декодируем refreshToken
+
   const session = await SessionsCollection.findOne({
-    _id: sessionId,
-    refreshToken,
+    _id: sessionIdDec,
+    refreshToken: refreshTokenDec,
   });
 
   if (!session) {
