@@ -79,6 +79,9 @@ export const refreshUsersSession = async ({ sessionId, refreshToken }) => {
   const sessionIdDec = decodeURIComponent(sessionId); // Декодируем sessionId
   const refreshTokenDec = decodeURIComponent(refreshToken); // Декодируем refreshToken
 
+  console.log('Session data client:', sessionId);
+  console.log('Session data:', sessionId);
+
   const session = await SessionsCollection.findOne({
     _id: sessionIdDec,
     refreshToken: refreshTokenDec,
