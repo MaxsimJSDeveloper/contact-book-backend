@@ -27,6 +27,8 @@ export const startServer = () => {
 
   app.use(cors(corsOptions));
 
+  app.options('*', cors(corsOptions));
+
   app.use(cookieParser());
 
   app.use(
