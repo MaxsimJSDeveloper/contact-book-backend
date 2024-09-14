@@ -14,7 +14,7 @@ const PORT = Number(env('PORT', '3000'));
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://contact-book-ts.vercel.app/',
+  'https://contact-book-ts.vercel.app',
 ];
 
 const corsOptions = {
