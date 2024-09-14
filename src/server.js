@@ -19,7 +19,7 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: allowedOrigins,
-  // credentials: true,
+  credentials: true,
 };
 
 export const startServer = () => {
