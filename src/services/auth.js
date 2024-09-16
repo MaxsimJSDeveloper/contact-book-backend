@@ -39,6 +39,7 @@ export const loginUser = async (payload) => {
   if (!user) {
     throw createHttpError(404, 'User not found');
   }
+
   const isEqual = await bcrypt.compare(payload.password, user.password);
 
   if (!isEqual) {
@@ -50,13 +51,16 @@ export const loginUser = async (payload) => {
   const accessToken = randomBytes(30).toString('base64');
   const refreshToken = randomBytes(30).toString('base64');
 
-  return await SessionsCollection.create({
+  const userName = user.name;
+  const session = await SessionsCollection.create({
     userId: user._id,
     accessToken,
     refreshToken,
     accessTokenValidUntil: new Date(Date.now() + FIFTEEN_MINUTES),
     refreshTokenValidUntil: new Date(Date.now() + ONE_DAY),
   });
+
+  return { userName, session };
 };
 
 export const logoutUser = async (sessionId) => {

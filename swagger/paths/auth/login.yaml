@@ -30,6 +30,8 @@ responses:
         schema:
           type: object
           properties:
+            name:
+              type: string
             accessToken:
               type: string
           required:
