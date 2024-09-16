@@ -1,5 +1,6 @@
 import { ONE_DAY } from '../constants/index.js';
 import {
+  getUserWhenLogin,
   loginOrSignupWithGoogle,
   loginUser,
   logoutUser,
@@ -22,7 +23,8 @@ export const registerUserController = async (req, res) => {
 
 export const loginUserController = async (req, res) => {
   const session = await loginUser(req.body);
-  console.log(session);
+  const user = await getUserWhenLogin(req.body);
+
   res.cookie('refreshToken', session.refreshToken, {
     httpOnly: true,
     secure: true,
@@ -40,8 +42,8 @@ export const loginUserController = async (req, res) => {
     status: 200,
     message: 'Successfully logged in an user!',
     data: {
-      name: session.userName,
-      accessToken: session.session.accessToken,
+      user,
+      accessToken: session.accessToken,
     },
   });
 };

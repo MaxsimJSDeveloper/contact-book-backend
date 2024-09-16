@@ -51,7 +51,6 @@ export const loginUser = async (payload) => {
   const accessToken = randomBytes(30).toString('base64');
   const refreshToken = randomBytes(30).toString('base64');
 
-  const userName = user.name;
   const session = await SessionsCollection.create({
     userId: user._id,
     accessToken,
@@ -60,7 +59,15 @@ export const loginUser = async (payload) => {
     refreshTokenValidUntil: new Date(Date.now() + ONE_DAY),
   });
 
-  return { userName, session };
+  return session;
+};
+
+export const getUserWhenLogin = async (payload) => {
+  const user = await UsersCollection.findOne({ email: payload.email });
+  return {
+    name: user.name,
+    email: user.email,
+  };
 };
 
 export const logoutUser = async (sessionId) => {
@@ -80,8 +87,8 @@ const createSession = () => {
 };
 
 export const refreshUsersSession = async ({ sessionId, refreshToken }) => {
-  const sessionIdDec = decodeURIComponent(sessionId); // Декодируем sessionId
-  const refreshTokenDec = decodeURIComponent(refreshToken); // Декодируем refreshToken
+  const sessionIdDec = decodeURIComponent(sessionId);
+  const refreshTokenDec = decodeURIComponent(refreshToken);
 
   console.log('Session data client:', sessionId);
   console.log('Session data:', sessionId);
