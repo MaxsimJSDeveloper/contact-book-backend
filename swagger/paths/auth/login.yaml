@@ -30,13 +30,6 @@ responses:
         schema:
           type: object
           properties:
-            user:
-              type: object
-              properties:
-                name:
-                  type: string
-                email:
-                  type: string
             accessToken:
               type: string
           required:

@@ -62,14 +62,6 @@ export const loginUser = async (payload) => {
   return session;
 };
 
-export const getUserWhenLogin = async (payload) => {
-  const user = await UsersCollection.findOne({ email: payload.email });
-  return {
-    name: user.name,
-    email: user.email,
-  };
-};
-
 export const logoutUser = async (sessionId) => {
   await SessionsCollection.deleteOne({ _id: sessionId });
 };

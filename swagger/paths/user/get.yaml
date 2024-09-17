@@ -1,0 +1,57 @@
+tags:
+  - User
+summary: Get current user
+operationId: getUser
+description: 'Get current user'
+security:
+  - bearerAuth: []
+
+responses:
+  200:
+    description: 'Successful operation'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 'Success!'
+            data:
+              type: object
+              properties:
+                _id:
+                  type: string
+                  example: '66e84e9de983fe95dda7b00d'
+                name:
+                  type: string
+                  example: 'John Doe'
+                email:
+                  type: string
+                  example: 'john.doe@example.com'
+  401:
+    description: 'Unauthorized - Access token is missing or invalid'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 'Unauthorized'
+  500:
+    description: 'Server error - Something went wrong'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 500
+            message:
+              type: string
+              example: 'Something went wrong'
+            error:
+              type: string
+              example: 'Internal Server Error'

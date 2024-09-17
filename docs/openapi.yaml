@@ -51,6 +51,9 @@ paths:
       $ref: '../swagger/paths/contacts/{id}/delete.yaml'
     patch:
       $ref: '../swagger/paths/contacts/{id}/patch.yaml'
+  /user:
+    get:
+      $ref: '../swagger/paths/user/get.yaml'
 components:
   securitySchemes:
     bearerAuth:
