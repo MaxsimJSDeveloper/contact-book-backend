@@ -8,7 +8,7 @@ This repository contains the backend implementation for a Contact Book applicati
 - **Water Intake Tracking**: 
   - Add, edit, delete, and retrieve water intake records.
 
-For detailed API documentation, visit the [API Documentation](https://binary-shift-backend.onrender.com/api-docs/).
+For detailed API documentation, visit the [API Documentation](https://contact-book-backend-77nn.onrender.com/api-docs/).
 
 ## Technologies
 - **JavaScript**
