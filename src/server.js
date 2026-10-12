@@ -10,6 +10,10 @@ import cookieParser from 'cookie-parser';
 import { UPLOAD_DIR } from './constants/index.js';
 import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
+import dns from 'node:dns';
+
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 const PORT = Number(env('PORT', '3000'));
 
 const allowedOrigins = [
