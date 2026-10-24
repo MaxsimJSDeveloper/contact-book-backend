@@ -28,7 +28,7 @@ requestBody:
             type: string
             default: 'user@gmail.com'
             example: 'jane.doe@example.com'
-          isFavourite:
+          isFavorite:
             description: 'Indicates if the contact is marked as a favourite'
             type: boolean
             default: false

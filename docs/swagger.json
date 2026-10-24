@@ -512,7 +512,7 @@
             }
           },
           {
-            "name": "isFavourite",
+            "name": "isFavorite",
             "in": "query",
             "description": "Filter contacts by favourite status",
             "required": false,
@@ -569,8 +569,8 @@
                     "default": "user@gmail.com",
                     "example": "jane.doe@example.com"
                   },
-                  "isFavourite": {
-                    "description": "Indicates if the contact is marked as a favourite",
+                  "isFavorite": {
+                    "description": "Indicates if the contact is marked as a favorite",
                     "type": "boolean",
                     "default": false,
                     "example": true
@@ -746,8 +746,8 @@
                     "default": "user@gmail.com",
                     "example": "jane.doe@example.com"
                   },
-                  "isFavourite": {
-                    "description": "Indicates if the contact is marked as a favourite",
+                  "isFavorite": {
+                    "description": "Indicates if the contact is marked as a favorite",
                     "type": "boolean",
                     "default": false,
                     "example": true
@@ -979,8 +979,8 @@
             "default": "user@gmail.com",
             "example": "jane.doe@example.com"
           },
-          "isFavourite": {
-            "description": "Indicates if the contact is marked as a favourite",
+          "isFavorite": {
+            "description": "Indicates if the contact is marked as a favorite",
             "type": "boolean",
             "default": false,
             "example": true

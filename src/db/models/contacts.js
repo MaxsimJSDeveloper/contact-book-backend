@@ -14,7 +14,7 @@ const contactsSchema = new Schema(
       type: String,
       default: 'user@gmail.com',
     },
-    isFavourite: {
+    isFavorite: {
       type: Boolean,
       default: false,
     },

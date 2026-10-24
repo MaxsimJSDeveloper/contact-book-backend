@@ -23,8 +23,8 @@ properties:
     type: string
     default: 'user@gmail.com'
     example: 'jane.doe@example.com'
-  isFavourite:
-    description: 'Indicates if the contact is marked as a favourite'
+  isFavorite:
+    description: 'Indicates if the contact is marked as a favorite'
     type: boolean
     default: false
     example: true

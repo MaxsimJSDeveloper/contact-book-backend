@@ -42,9 +42,9 @@ parameters:
     schema:
       type: string
       enum: [home, personal]
-  - name: isFavourite
+  - name: isFavorite
     in: query
-    description: Filter contacts by favourite status
+    description: Filter contacts by favorite status
     required: false
     schema:
       type: boolean
